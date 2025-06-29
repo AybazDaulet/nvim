@@ -5,6 +5,8 @@ require("lazy").setup({
 	{ "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate" }
 })
 vim.cmd('colorscheme everblush')
+vim.o.number = true
+vim.o.relativenumber = true
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
