@@ -1,3 +1,3 @@
 return {
-	{ 'Everblush/nvim', name = 'everblush' }
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }
 }
