@@ -35,43 +35,47 @@ require("nvim-tree").setup({
 })
 
 -- Tree-sitter config
-require'nvim-treesitter.configs'.setup {
-    -- A directory to install the parsers into.
-    -- If this is excluded or nil parsers are installed
-    -- to either the package dir, or the "site" dir.
-    -- If a custom path is used (not nil) it must be added to the runtimepath.
+require 'nvim-treesitter.configs'.setup {
+	-- A directory to install the parsers into.
+	-- If this is excluded or nil parsers are installed
+	-- to either the package dir, or the "site" dir.
+	-- If a custom path is used (not nil) it must be added to the runtimepath.
 
-    -- A list of parser names, or "all"
-    ensure_installed = {  },
+	-- A list of parser names, or "all"
+	ensure_installed = {},
 
-    -- Install parsers synchronously (only applied to `ensure_installed`)
-    sync_install = true,
+	-- Install parsers synchronously (only applied to `ensure_installed`)
+	sync_install = true,
 
-    -- Automatically install missing parsers when entering buffer
-    auto_install = true,
+	-- Automatically install missing parsers when entering buffer
+	auto_install = true,
 
-    -- List of parsers to ignore installing (for "all")
-    ignore_install = {  },
+	-- List of parsers to ignore installing (for "all")
+	ignore_install = {},
 
-    highlight = {
-      -- `false` will disable the whole extension
-      enable = true,
+	highlight = {
+		-- `false` will disable the whole extension
+		enable = true,
 
-      -- list of language that will be disabled
-      disable = {},
+		-- list of language that will be disabled
+		disable = {},
 
-      -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-      -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-      -- Using this option may slow down your editor, and you may see some duplicate highlights.
-      -- Instead of true it can also be a list of languages
-      additional_vim_regex_highlighting = true,
-    },
-  }
+		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+		-- Using this option may slow down your editor, and you may see some duplicate highlights.
+		-- Instead of true it can also be a list of languages
+		additional_vim_regex_highlighting = true,
+	},
+}
 
 -- keymaps
-vim.keymap.set("n", "<leader>f", function()
-	vim.lsp.buf.format()
-end, { desc = "Format with LSP" })
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function()
+		vim.lsp.buf.format()
+	end,
+	desc = "Format buffer with LSP before saving",
+})
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
