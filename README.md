@@ -14,3 +14,7 @@ Plugins that my config include are
 8. nvim-telescope/telescope.nvim - fuzzy search for everything.
 9. nvim-tree/nvim-tree.lua - a file explorer.
 10. catppuccin/nvim - a nice color theme.
+
+## Debugger
+
+I don't use a debugger in neovim. Often log/print statements solve a problem for me because I write quite simple code. If I encounter a problem that can't be simply represented by print statements I usually use external tools and IDEs, like JetBrains, VisualStudio, Firefox Debugger.
