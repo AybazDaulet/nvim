@@ -14,6 +14,7 @@ Plugins that my config include are
 8. nvim-telescope/telescope.nvim - fuzzy search for everything.
 9. nvim-tree/nvim-tree.lua - a file explorer.
 10. catppuccin/nvim - a nice color theme.
+11. nvimtools/none-ls.nvim - LSP
 
 ## Debugger
 

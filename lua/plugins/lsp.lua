@@ -78,4 +78,5 @@ return {
 			-- Your LSP settings here
 		end,
 	},
+	{ "nvimtools/none-ls.nvim" },
 }

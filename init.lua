@@ -86,3 +86,13 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Escape insert mode", noremap = true })
 
 vim.opt.clipboard = "unnamedplus"
+
+local null_ls = require("null-ls")
+
+null_ls.setup({
+	sources = {
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.biome,
+		null_ls.builtins.formatting.tidy,
+	},
+})
