@@ -80,3 +80,5 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' 
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Escape insert mode", noremap = true })
+
+vim.opt.clipboard = "unnamedplus"
